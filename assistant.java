@@ -16,7 +16,7 @@ enum Intent {
   THANKS,
   UNKNOWN,
   OPEN,
-  COURSE,
+  COURSE, 
   SURE,
   DONE,
   CALCULATION,
@@ -222,23 +222,6 @@ public class assistant {
       } else {
         System.out.println("invalid choice");
       }
-
-    }
-
-    // PASSWORD Generator
-
-    else if (input.contains("8") || input.contains("password")) {
-      System.out.println("Enter desired Password length:");
-      int length = scanner.nextInt();
-      String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*";
-      Random rnd = new Random();
-      StringBuilder password = new StringBuilder();
-      for (int i = 0; i < length; i++) {
-        password.append(chars.charAt(rnd.nextInt(chars.length())));
-      }
-      System.out.println("Password: " + password.toString());
-
-      return Intent.DONE;
 
     }
 
@@ -601,9 +584,25 @@ public class assistant {
     else if (input.contains("Goodbye") || input.contains("clear") || input.contains("GOODBYE")) {
       return Intent.GOODBYE;
     }
+    
+
+    // PASSWORD Generator
+
+    else if (input.contains("8") || input.contains("password")) {
+      System.out.println("Enter desired Password length:");
+      int length = scanner.nextInt();
+      String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*";
+      Random rnd = new Random();
+      StringBuilder password = new StringBuilder();
+      for (int i = 0; i < length; i++) {
+        password.append(chars.charAt(rnd.nextInt(chars.length())));
+      }
+      System.out.println("Password: " + password.toString());
+    return Intent.DONE;
+
 
     // function for opening course url in chrome or any other browser
-    else if (input.contains("4") || input.contains(" course")) {
+     } else if (input.contains("4") || input.contains(" course")) {
 
       String url = "https://www.apnacollege.in/path-player?courseid=alpha-plus-combo-1&unit=6571c324ccd5f955050cf015Unit";
       try {
